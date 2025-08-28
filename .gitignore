@@ -1,0 +1,10 @@
+*.o
+*.exec
+*.bin
+*.tar.gz
+*.tar
+debug/
+target/
+Cargo.lock
+**/*.rs.bk
+*.pdb
