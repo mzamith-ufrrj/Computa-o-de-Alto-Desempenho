@@ -94,7 +94,6 @@ void matrix_multi(tpMatrix *  C,
                   tpMatrix *  A,
                   tpMatrix *  B){
 
-        //#pragma omp parallel for
         for (unsigned int j = 0; j < C->n; j++){
             for (unsigned int i = 0; i < C->m; i++){
                 double c = 0.0f;

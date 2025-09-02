@@ -15,7 +15,7 @@
  * performance.
  */
 int main (int ac, char **av){
-    unsigned int  nThreads = 6, 
+    unsigned int  nThreads = 4,
                   size = 21,
                   *vet = NULL;
     
@@ -31,6 +31,7 @@ int main (int ac, char **av){
         b[i] = (double) (i+1) / 100.0f;
         c[i] = 0.0f;
     }
+    omp_set_num_threads(nThreads);
     #pragma omp parallel
     {
             unsigned int id_t = omp_get_thread_num();
@@ -38,7 +39,7 @@ int main (int ac, char **av){
             #pragma omp for
             for (unsigned int i = 0; i < size; i++){
                 vet[i] = id_t;
-                c[i] = a[i] = b[i];
+                c[i] = a[i] + b[i];
             }
                 
     }
